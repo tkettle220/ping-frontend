@@ -51,6 +51,7 @@
 		FEAE8E851F6E138E008CAD35 /* TSLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8E841F6E138E008CAD35 /* TSLocationManager.framework */; };
 		FEAE8E861F6E15B4008CAD35 /* libRCTFBLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8DAA1F6DF88F008CAD35 /* libRCTFBLogin.a */; };
 		FEAE8E901F6E46C4008CAD35 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8E8D1F6E46A1008CAD35 /* libRCTPushNotification.a */; };
+		FEAE8E971F6E5A9C008CAD35 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8E961F6E5A7F008CAD35 /* libReactNativeNavigation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -390,6 +391,13 @@
 			remoteGlobalIDString = 3D05745F1DE6004600184BB4;
 			remoteInfo = "RCTPushNotification-tvOS";
 		};
+		FEAE8E951F6E5A7F008CAD35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEAE8E911F6E5A7F008CAD35 /* ReactNativeNavigation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8AFADBD1BEE6F3F00A4592D;
+			remoteInfo = ReactNativeNavigation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -438,6 +446,7 @@
 		FEAE8E821F6E1337008CAD35 /* TSLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TSLocationManager.framework; path = "../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/TSLocationManager.framework"; sourceTree = "<group>"; };
 		FEAE8E841F6E138E008CAD35 /* TSLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TSLocationManager.framework; path = "../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/TSLocationManager.framework"; sourceTree = "<group>"; };
 		FEAE8E871F6E46A1008CAD35 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
+		FEAE8E911F6E5A7F008CAD35 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -453,6 +462,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEAE8E971F6E5A9C008CAD35 /* libReactNativeNavigation.a in Frameworks */,
 				FEAE8E901F6E46C4008CAD35 /* libRCTPushNotification.a in Frameworks */,
 				FEAE8E861F6E15B4008CAD35 /* libRCTFBLogin.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -649,6 +659,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				FEAE8E911F6E5A7F008CAD35 /* ReactNativeNavigation.xcodeproj */,
 				FEAE8E871F6E46A1008CAD35 /* RCTPushNotification.xcodeproj */,
 				FEAE8E841F6E138E008CAD35 /* TSLocationManager.framework */,
 				FEAE8DA01F6DF88F008CAD35 /* RCTFBLogin.xcodeproj */,
@@ -763,6 +774,14 @@
 			children = (
 				FEAE8E8D1F6E46A1008CAD35 /* libRCTPushNotification.a */,
 				FEAE8E8F1F6E46A1008CAD35 /* libRCTPushNotification-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FEAE8E921F6E5A7F008CAD35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEAE8E961F6E5A7F008CAD35 /* libReactNativeNavigation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -946,6 +965,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = FEAE8E921F6E5A7F008CAD35 /* Products */;
+					ProjectRef = FEAE8E911F6E5A7F008CAD35 /* ReactNativeNavigation.xcodeproj */;
 				},
 				{
 					ProductGroup = FEAE8E091F6E1084008CAD35 /* Products */;
@@ -1289,6 +1312,13 @@
 			remoteRef = FEAE8E8E1F6E46A1008CAD35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FEAE8E961F6E5A7F008CAD35 /* libReactNativeNavigation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeNavigation.a;
+			remoteRef = FEAE8E951F6E5A7F008CAD35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1509,6 +1539,7 @@
 					"$(SRCROOT)/../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/**",
 					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 					"$(SRCROOT)/../node_modules/cocoa-lumberjack/CocoaLumberjack/**",
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 				);
 				INFOPLIST_FILE = ping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1540,6 +1571,7 @@
 					"$(SRCROOT)/../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/**",
 					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 					"$(SRCROOT)/../node_modules/cocoa-lumberjack/CocoaLumberjack/**",
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 				);
 				INFOPLIST_FILE = ping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

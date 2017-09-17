@@ -1,46 +1,19 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry, View, Image, Button, TouchableHighlight, StyleSheet, Text } from 'react-native';
+import FBLoginMock from '../FBLoginMock';
 
-import { Navigation } from 'react-native-navigation';
-import { registerScreens } from './screens';
+import BackgroundGeolocation from "react-native-background-geolocation";
+const API_URL = 'https://gentle-anchorage-13426.herokuapp.com/api/';
 
-registerScreens();
-
-Navigation.startSingleScreenApp({
-  screen: {
-    screen: 'ping.LoginScreen', // unique ID registered with Navigation.registerScreen
-    title: 'Welcome', // title of the screen as appears in the nav bar (optional)
-    navigatorStyle: {navBarHidden: true, disabledBackGesture: true}, // override the navigator style for the screen, see "Styling the navigator" below (optional)
-    navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
-  },
-  passProps: {}, // simple serializable object that will pass as props to all top screens (optional)
-  animationType: 'slide-down' // optional, add transition animation to root change: 'none', 'slide-down', 'fade'
-});
-
-
-/*
-
-export default class ping extends Component {
+export default class LoginScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       session_token: null,
       user_id: null,
-      friends: null
+      friends: {},
     };
   }
-
   componentWillMount() {
     BackgroundGeolocation.on('location', this.onLocation);
     BackgroundGeolocation.configure({
@@ -51,7 +24,7 @@ export default class ping extends Component {
       stopTimeout: 5,
       stopDetectionDelay: 10 ,
       // Application config
-      debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
+      debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
       logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
       stopOnTerminate: false,   // <-- Allow the background-service to continue tracking when user closes the app.
       startOnBoot: true,        // <-- Auto start tracking when device is powered-up.
@@ -62,7 +35,6 @@ export default class ping extends Component {
         (error) => console.error(error),
         {interval: 10, persist: false}
       );
-
 
       if (!state.enabled) {
           BackgroundGeolocation.start(function() {
@@ -128,22 +100,31 @@ export default class ping extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.user_id) {
+      this.props.navigator.push({
+        screen: 'ping.FriendlistScreen',
+        backButtonHidden: true,
+        passProps: {
+          friends: this.state.friends,
+        },
+        navigatorStyle: {
+          disabledBackGesture: true,
+        }
+      });
+    }
+  }
+
   render() {
     return (
-      <View style={styles.column}>
+      <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', backgroundColor: '#8e44ad'}}>
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <Text style={{color: '#ecf0f1', fontSize: 50, textAlign: 'center', margin: 40}}>ping</Text>
+        </View>
+        <View style={{flex: 1, marginLeft: 40, marginRight: 40}}>
+          <FBLoginMock setSession={(state) => this.setState(state)}/>
+        </View>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  column: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-  }
-});
-
-
-AppRegistry.registerComponent('ping', () => ping);
-*/

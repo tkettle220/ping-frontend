@@ -11,7 +11,7 @@ var {
   TouchableHighlight,
 } = ReactNative;
 
-const API_URL = 'http://7bf94d8e.ngrok.io/api/';
+const API_URL = 'https://gentle-anchorage-13426.herokuapp.com/api/';
 import { FBLoginManager } from 'react-native-facebook-login';
 
 var FBLoginMock = React.createClass({
@@ -36,7 +36,8 @@ var FBLoginMock = React.createClass({
         _this.setState({ user : data});
         let userId = _this.state.user.credentials.userId;
         let token = _this.state.user.credentials.token;
-        _this.props.setSession(userId, token);
+        let friends = _this.state.user.friends;
+        _this.props.setSession({user_id: userId, session_token: token});
         await _this.sendToTommy(userId, token);
         _this.props.onLogin && _this.props.onLogin();
       } else {
@@ -60,6 +61,7 @@ var FBLoginMock = React.createClass({
         })
       });
       let responseJSON = await response.json();
+      this.props.setSession({friends: responseJSON.friends});
       console.warn(JSON.stringify(responseJSON));
 
     } catch (error) {
@@ -72,7 +74,11 @@ var FBLoginMock = React.createClass({
     FBLoginManager.logout(function(error, data){
       if (!error) {
         _this.setState({ user : null});
-        _this.props.setSession(null, null);
+        _this.props.setSession({
+          session_token: null,
+          user_id: null,
+          friends: {},
+        });
         _this.props.onLogout && _this.props.onLogout();
       } else {
         console.log(error, data);
@@ -129,7 +135,7 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
-    height: 30,
+    height: 40,
     width: 175,
     paddingLeft: 2,
 
@@ -150,7 +156,7 @@ var styles = StyleSheet.create({
     color: 'white',
     fontWeight: '600',
     fontFamily: 'Helvetica neue',
-    fontSize: 14.2,
+    fontSize: 16,
   },
   FBLoginButtonTextLoggedIn: {
     marginLeft: 5,
