@@ -20,6 +20,7 @@ var FBLoginMock = React.createClass({
     onPress: PropTypes.func,
     onLogin: PropTypes.func,
     onLogout: PropTypes.func,
+    setSession: PropTypes.func,
   },
 
   getInitialState: function(){
@@ -33,7 +34,10 @@ var FBLoginMock = React.createClass({
     await FBLoginManager.login(async function(error, data){
       if (!error) {
         _this.setState({ user : data});
-        await _this.sendToTommy(_this.state.user.credentials.userId, _this.state.user.credentials.token);
+        let userId = _this.state.user.credentials.userId;
+        let token = _this.state.user.credentials.token;
+        _this.props.setSession(userId, token);
+        await _this.sendToTommy(userId, token);
         _this.props.onLogin && _this.props.onLogin();
       } else {
         console.log(error, data);
@@ -55,8 +59,9 @@ var FBLoginMock = React.createClass({
           session_token: token
         })
       });
-    //  let responseJSON = await response.json();
-      console.warn(JSON.stringify(response));
+      let responseJSON = await response.json();
+      console.warn(JSON.stringify(responseJSON));
+
     } catch (error) {
       console.error(error);
     }
@@ -67,6 +72,7 @@ var FBLoginMock = React.createClass({
     FBLoginManager.logout(function(error, data){
       if (!error) {
         _this.setState({ user : null});
+        _this.props.setSession(null, null);
         _this.props.onLogout && _this.props.onLogout();
       } else {
         console.log(error, data);

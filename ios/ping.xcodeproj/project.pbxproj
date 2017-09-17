@@ -50,6 +50,7 @@
 		FEAE8D5A1F6DF3A3008CAD35 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8D591F6DF3A3008CAD35 /* FBSDKLoginKit.framework */; };
 		FEAE8E851F6E138E008CAD35 /* TSLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8E841F6E138E008CAD35 /* TSLocationManager.framework */; };
 		FEAE8E861F6E15B4008CAD35 /* libRCTFBLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8DAA1F6DF88F008CAD35 /* libRCTFBLogin.a */; };
+		FEAE8E901F6E46C4008CAD35 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8E8D1F6E46A1008CAD35 /* libRCTPushNotification.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,6 +376,20 @@
 			remoteGlobalIDString = 19D90B351BBFAA7500947169;
 			remoteInfo = "CocoaLumberjackSwift-tvOS";
 		};
+		FEAE8E8C1F6E46A1008CAD35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEAE8E871F6E46A1008CAD35 /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTPushNotification;
+		};
+		FEAE8E8E1F6E46A1008CAD35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEAE8E871F6E46A1008CAD35 /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D05745F1DE6004600184BB4;
+			remoteInfo = "RCTPushNotification-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -422,6 +437,7 @@
 		FEAE8DA01F6DF88F008CAD35 /* RCTFBLogin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBLogin.xcodeproj; path = "../node_modules/react-native-facebook-login/RCTFBLogin.xcodeproj"; sourceTree = "<group>"; };
 		FEAE8E821F6E1337008CAD35 /* TSLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TSLocationManager.framework; path = "../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/TSLocationManager.framework"; sourceTree = "<group>"; };
 		FEAE8E841F6E138E008CAD35 /* TSLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TSLocationManager.framework; path = "../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/TSLocationManager.framework"; sourceTree = "<group>"; };
+		FEAE8E871F6E46A1008CAD35 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +453,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEAE8E901F6E46C4008CAD35 /* libRCTPushNotification.a in Frameworks */,
 				FEAE8E861F6E15B4008CAD35 /* libRCTFBLogin.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				FEAE8D581F6DF39D008CAD35 /* FBSDKCoreKit.framework in Frameworks */,
@@ -632,6 +649,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				FEAE8E871F6E46A1008CAD35 /* RCTPushNotification.xcodeproj */,
 				FEAE8E841F6E138E008CAD35 /* TSLocationManager.framework */,
 				FEAE8DA01F6DF88F008CAD35 /* RCTFBLogin.xcodeproj */,
 				FEAE8D591F6DF3A3008CAD35 /* FBSDKLoginKit.framework */,
@@ -736,6 +754,15 @@
 				FEAE8E591F6E108E008CAD35 /* CocoaLumberjackSwift.framework */,
 				FEAE8E5B1F6E108E008CAD35 /* CocoaLumberjack.framework */,
 				FEAE8E5D1F6E108E008CAD35 /* CocoaLumberjackSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FEAE8E881F6E46A1008CAD35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEAE8E8D1F6E46A1008CAD35 /* libRCTPushNotification.a */,
+				FEAE8E8F1F6E46A1008CAD35 /* libRCTPushNotification-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -895,6 +922,10 @@
 				{
 					ProductGroup = 00C302D41ABCB9D200DB3ED1 /* Products */;
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
+				},
+				{
+					ProductGroup = FEAE8E881F6E46A1008CAD35 /* Products */;
+					ProjectRef = FEAE8E871F6E46A1008CAD35 /* RCTPushNotification.xcodeproj */;
 				},
 				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
@@ -1242,6 +1273,20 @@
 			fileType = wrapper.framework;
 			path = CocoaLumberjackSwift.framework;
 			remoteRef = FEAE8E5C1F6E108E008CAD35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FEAE8E8D1F6E46A1008CAD35 /* libRCTPushNotification.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTPushNotification.a;
+			remoteRef = FEAE8E8C1F6E46A1008CAD35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FEAE8E8F1F6E46A1008CAD35 /* libRCTPushNotification-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTPushNotification-tvOS.a";
+			remoteRef = FEAE8E8E1F6E46A1008CAD35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

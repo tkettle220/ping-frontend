@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key></key>
+	<string></string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>I will find you, and I will kill you.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>pickle rick</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -58,7 +64,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>suck my dick</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
