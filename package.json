@@ -1,0 +1,31 @@
+{
+	"name": "ping",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"dependencies": {
+		"adm-zip": "^0.4.7",
+		"fastfall": "^1.5.1",
+		"got": "^7.1.0",
+		"plist": "^2.1.0",
+		"progress": "^2.0.0",
+		"pump": "^1.0.2",
+		"react": "16.0.0-alpha.12",
+		"react-native": "0.48.3",
+		"react-native-background-geolocation": "^2.9.3",
+		"react-native-facebook-login": "^1.6.0",
+		"xcode": "^0.9.3"
+	},
+	"devDependencies": {
+		"babel-jest": "21.0.2",
+		"babel-preset-react-native": "4.0.0",
+		"jest": "21.1.0",
+		"react-test-renderer": "16.0.0-alpha.12"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}
