@@ -17,6 +17,7 @@
 		"react-native": "0.48.3",
 		"react-native-background-geolocation": "^2.9.3",
 		"react-native-facebook-login": "^1.6.0",
+		"react-native-maps": "^0.16.4",
 		"react-native-navigation": "^1.1.227",
 		"xcode": "^0.9.3"
 	},

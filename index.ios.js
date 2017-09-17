@@ -14,7 +14,9 @@ import {
 
 import { Navigation } from 'react-native-navigation';
 import { registerScreens } from './screens';
+import {PushNotificationIOS} from "react-native";
 
+PushNotificationIOS.requestPermissions();
 registerScreens();
 
 Navigation.startSingleScreenApp({

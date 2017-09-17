@@ -44,6 +44,7 @@
 		ACB75E4B77A946B0866BD9D6 /* libRNBackgroundGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8AA246ADE748669B3FE8D1 /* libRNBackgroundGeolocation.a */; };
 		CBF04027862E41108DB87EBE /* libRNBackgroundFetch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 238CF6297EF443DB871CD90B /* libRNBackgroundFetch.a */; };
 		D1CDDCD02B0949939FFF86FA /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCF5D9E90FE4BFBB1275587 /* FBSDKShareKit.framework */; };
+		F64F0CFCDDEC480DAA38DD25 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 364B19659B724BCBA6DC8E4B /* libAirMaps.a */; };
 		FD922B27D8154C4D9E639A65 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5866183693EB4A25BE298648 /* FBSDKCoreKit.framework */; };
 		FEAE8D331F6DF391008CAD35 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8D321F6DF391008CAD35 /* Bolts.framework */; };
 		FEAE8D581F6DF39D008CAD35 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8D571F6DF39D008CAD35 /* FBSDKCoreKit.framework */; };
@@ -398,6 +399,13 @@
 			remoteGlobalIDString = D8AFADBD1BEE6F3F00A4592D;
 			remoteInfo = ReactNativeNavigation;
 		};
+		FEAE8EAD1F6EA3B0008CAD35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 306F7368C03F40BA96261DDA /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -427,6 +435,8 @@
 		2D02E47B1E0B4A5D006451C7 /* ping-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ping-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ping-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ping-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F8AA246ADE748669B3FE8D1 /* libRNBackgroundGeolocation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBackgroundGeolocation.a; sourceTree = "<group>"; };
+		306F7368C03F40BA96261DDA /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
+		364B19659B724BCBA6DC8E4B /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		424B09C2E7DC414BB466BFB5 /* libCocoaLumberjack.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCocoaLumberjack.a; sourceTree = "<group>"; };
 		4735A8BE16C8428AA8EBF19E /* RNBackgroundFetch+AppDelegate.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = "RNBackgroundFetch+AppDelegate.m"; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/RNBackgroundFetch+AppDelegate.m"; sourceTree = "<group>"; };
 		5866183693EB4A25BE298648 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ./ios/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -488,6 +498,7 @@
 				CBF04027862E41108DB87EBE /* libRNBackgroundFetch.a in Frameworks */,
 				6848AB600A954419A0C1A902 /* TSBackgroundFetch.framework in Frameworks */,
 				6E9E6F9852144C14A8316FF3 /* libCocoaLumberjack.a in Frameworks */,
+				F64F0CFCDDEC480DAA38DD25 /* libAirMaps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +692,7 @@
 				E2626F5971D049488D844A97 /* RNBackgroundGeolocation.xcodeproj */,
 				24EF9469AF7944919AB8AF9D /* RNBackgroundFetch.xcodeproj */,
 				AC2451F3BF9C4FD6AB276E67 /* Lumberjack.xcodeproj */,
+				306F7368C03F40BA96261DDA /* AirMaps.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -782,6 +794,14 @@
 			isa = PBXGroup;
 			children = (
 				FEAE8E961F6E5A7F008CAD35 /* libReactNativeNavigation.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FEAE8EAA1F6EA3B0008CAD35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEAE8EAE1F6EA3B0008CAD35 /* libAirMaps.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -906,6 +926,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = FEAE8EAA1F6EA3B0008CAD35 /* Products */;
+					ProjectRef = 306F7368C03F40BA96261DDA /* AirMaps.xcodeproj */;
+				},
 				{
 					ProductGroup = FEAE8E401F6E108E008CAD35 /* Products */;
 					ProjectRef = AC2451F3BF9C4FD6AB276E67 /* Lumberjack.xcodeproj */;
@@ -1319,6 +1343,13 @@
 			remoteRef = FEAE8E951F6E5A7F008CAD35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FEAE8EAE1F6EA3B0008CAD35 /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = FEAE8EAD1F6EA3B0008CAD35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1468,12 +1499,14 @@
 					"$(SRCROOT)/../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/**",
 					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 					"$(SRCROOT)/../node_modules/cocoa-lumberjack/CocoaLumberjack/**",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 				);
 				INFOPLIST_FILE = pingTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1502,12 +1535,14 @@
 					"$(SRCROOT)/../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/**",
 					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 					"$(SRCROOT)/../node_modules/cocoa-lumberjack/CocoaLumberjack/**",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 				);
 				INFOPLIST_FILE = pingTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1540,6 +1575,7 @@
 					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 					"$(SRCROOT)/../node_modules/cocoa-lumberjack/CocoaLumberjack/**",
 					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 				);
 				INFOPLIST_FILE = ping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1572,6 +1608,7 @@
 					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 					"$(SRCROOT)/../node_modules/cocoa-lumberjack/CocoaLumberjack/**",
 					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 				);
 				INFOPLIST_FILE = ping/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1607,11 +1644,13 @@
 					"$(SRCROOT)/../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/**",
 					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 					"$(SRCROOT)/../node_modules/cocoa-lumberjack/CocoaLumberjack/**",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 				);
 				INFOPLIST_FILE = "ping-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1649,11 +1688,13 @@
 					"$(SRCROOT)/../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/**",
 					"$(SRCROOT)/../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/**",
 					"$(SRCROOT)/../node_modules/cocoa-lumberjack/CocoaLumberjack/**",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 				);
 				INFOPLIST_FILE = "ping-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1689,6 +1730,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ping-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1714,6 +1756,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

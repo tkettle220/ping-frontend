@@ -3,7 +3,10 @@ import { AppRegistry, View, Image, Button, TouchableHighlight, StyleSheet, Text 
 import FBLoginMock from '../FBLoginMock';
 
 import BackgroundGeolocation from "react-native-background-geolocation";
-const API_URL = 'https://gentle-anchorage-13426.herokuapp.com/api/';
+import {PushNotificationIOS} from "react-native";
+
+import API from '../api';
+
 
 export default class LoginScreen extends Component {
   constructor(props) {
@@ -12,6 +15,7 @@ export default class LoginScreen extends Component {
       session_token: null,
       user_id: null,
       friends: {},
+      check_pings: null,
     };
   }
   componentWillMount() {
@@ -33,7 +37,7 @@ export default class LoginScreen extends Component {
       BackgroundGeolocation.watchPosition(
         this.onLocation,
         (error) => console.error(error),
-        {interval: 10, persist: false}
+        {interval: 5000, persist: false}
       );
 
       if (!state.enabled) {
@@ -42,27 +46,6 @@ export default class LoginScreen extends Component {
         });
       }
     });
-  }
-
-  checkForPings = async () => {
-    try {
-      let response = await fetch(API_URL + 'location', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          lat: location.latitude,
-          lng: location.longitude,
-          session_token: this.state.session_token
-        })
-      });
-      let responseJSON = await response.json();
-      console.warn(JSON.stringify(responseJSON));
-    } catch (error) {
-      console.error(error);
-    }
   }
 
   componentWillUnmount() {
@@ -76,42 +59,37 @@ export default class LoginScreen extends Component {
     console.log('- [js]location: ', JSON.stringify(location));
     if (!this.state.user_id) return;
     console.log('sending');
-    this.updateLocation(location.coords);
+    API.updateLocation(this.state.session_token, location.coords);
   }
 
-  updateLocation = async (location) => {
-    try {
-      let response = await fetch(API_URL + 'location', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          lat: location.latitude,
-          lng: location.longitude,
-          session_token: this.state.session_token
-        })
-      });
-      let responseJSON = await response.json();
-      console.warn(JSON.stringify(responseJSON));
-    } catch (error) {
-      console.error(error);
-    }
+  onPingsReceived = (ping_list) => {
+    ping_list.map((ping) => PushNotificationIOS.scheduleLocalNotification({
+      fireDate: new Date().toISOString(),
+      alertBody:  `${this.state.friends[ping.from].name} pinged you. He is at ${ping.location.lat}, ${ping.location.lng}.`
+    }))
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.user_id) {
+      this.state.check_pings = setInterval(async () => {
+        let resp = await API.getPings(this.state.session_token);
+        console.warn(JSON.stringify(resp));
+        this.onPingsReceived(resp);
+      }, 10000);
       this.props.navigator.push({
         screen: 'ping.FriendlistScreen',
         backButtonHidden: true,
         passProps: {
           friends: this.state.friends,
+          session_token: this.state.session_token,
         },
         navigatorStyle: {
           disabledBackGesture: true,
         }
       });
+    } else {
+      clearInterval(this.state.check_pings);
+      this.state.check_pings = null;
     }
   }
 

@@ -6,7 +6,9 @@ export default class FriendListScreen extends Component {
     return () => this.props.navigator.push({
       screen: 'ping.FriendProfileScreen',
       passProps: {
+        friend_id: fbid,
         friend: this.props.friends[fbid],
+        session_token: this.props.session_token,
       },
       navigatorStyle: {
         disabledBackGesture: true,

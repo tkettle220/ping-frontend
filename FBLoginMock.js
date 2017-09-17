@@ -11,8 +11,8 @@ var {
   TouchableHighlight,
 } = ReactNative;
 
-const API_URL = 'https://gentle-anchorage-13426.herokuapp.com/api/';
 import { FBLoginManager } from 'react-native-facebook-login';
+import API from './api';
 
 var FBLoginMock = React.createClass({
   propTypes: {
@@ -38,7 +38,8 @@ var FBLoginMock = React.createClass({
         let token = _this.state.user.credentials.token;
         let friends = _this.state.user.friends;
         _this.props.setSession({user_id: userId, session_token: token});
-        await _this.sendToTommy(userId, token);
+        let response = await API.doLogin(userId, token);
+        _this.props.setSession({friends: response.friends});
         _this.props.onLogin && _this.props.onLogin();
       } else {
         console.log(error, data);
@@ -46,28 +47,6 @@ var FBLoginMock = React.createClass({
     });
   },
 
-  sendToTommy: async function(userid, token) {
-    try {
-      //let response = await fetch('https://requestb.in/vdx5wfvd', {
-      let response = await fetch(API_URL + 'session', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          facebook_id: userid,
-          session_token: token
-        })
-      });
-      let responseJSON = await response.json();
-      this.props.setSession({friends: responseJSON.friends});
-      console.warn(JSON.stringify(responseJSON));
-
-    } catch (error) {
-      console.error(error);
-    }
-  },
 
   handleLogout: function(){
     var _this = this;
