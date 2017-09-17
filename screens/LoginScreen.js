@@ -15,7 +15,7 @@ export default class LoginScreen extends Component {
       session_token: null,
       user_id: null,
       pro_pic_url: null,
-      location: {},
+      location: {latitude: 37.976521, longitude: -122.413125},
       friends: {},
       check_pings: null,
     };
@@ -130,8 +130,8 @@ export default class LoginScreen extends Component {
       </View>
     );
   }
+
   shouldComponentUpdate(nextProps, nextState) {
-    console.warn(this.state.pro_pic_url !== nextState.pro_pic_url);
     return this.state.pro_pic_url !== nextState.pro_pic_url;
   }
 }
