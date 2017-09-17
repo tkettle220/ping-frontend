@@ -39,7 +39,7 @@ var FBLoginMock = React.createClass({
         let friends = _this.state.user.friends;
         _this.props.setSession({user_id: userId, session_token: token});
         let response = await API.doLogin(userId, token);
-        _this.props.setSession({friends: response.friends});
+        _this.props.setSession({friends: response.friends, pro_pic_url: response.pro_pic_url});
         _this.props.onLogin && _this.props.onLogin();
       } else {
         console.log(error, data);

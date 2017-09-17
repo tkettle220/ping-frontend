@@ -53,6 +53,7 @@
 		FEAE8E861F6E15B4008CAD35 /* libRCTFBLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8DAA1F6DF88F008CAD35 /* libRCTFBLogin.a */; };
 		FEAE8E901F6E46C4008CAD35 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8E8D1F6E46A1008CAD35 /* libRCTPushNotification.a */; };
 		FEAE8E971F6E5A9C008CAD35 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAE8E961F6E5A7F008CAD35 /* libReactNativeNavigation.a */; };
+		FEAE8EE21F6EB4B9008CAD35 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -472,6 +473,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEAE8EE21F6EB4B9008CAD35 /* libRCTAnimation.a in Frameworks */,
 				FEAE8E971F6E5A9C008CAD35 /* libReactNativeNavigation.a in Frameworks */,
 				FEAE8E901F6E46C4008CAD35 /* libRCTPushNotification.a in Frameworks */,
 				FEAE8E861F6E15B4008CAD35 /* libRCTFBLogin.a in Frameworks */,

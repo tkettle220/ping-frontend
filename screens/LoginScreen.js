@@ -14,12 +14,27 @@ export default class LoginScreen extends Component {
     this.state = {
       session_token: null,
       user_id: null,
+      pro_pic_url: null,
+      location: {},
       friends: {},
       check_pings: null,
     };
   }
+
+  showMeThePing = (notif) => {
+    let data = notif.getData();
+    this.props.navigator.push({
+      screen: 'ping.PingScreen',
+      passProps: {...data},
+      navigatorStyle: {
+        disabledBackGesture: true,
+      }
+    });
+  }
+
   componentWillMount() {
     BackgroundGeolocation.on('location', this.onLocation);
+    PushNotificationIOS.addEventListener('localNotification',this.showMeThePing);
     BackgroundGeolocation.configure({
       // Geolocation Config
       desiredAccuracy: 0,
@@ -37,7 +52,7 @@ export default class LoginScreen extends Component {
       BackgroundGeolocation.watchPosition(
         this.onLocation,
         (error) => console.error(error),
-        {interval: 5000, persist: false}
+        {interval: 1000, persist: false}
       );
 
       if (!state.enabled) {
@@ -56,38 +71,48 @@ export default class LoginScreen extends Component {
 
 
   onLocation = (location) => {
-    console.log('- [js]location: ', JSON.stringify(location));
     if (!this.state.user_id) return;
-    console.log('sending');
+    this.setState({location: location.coords});
     API.updateLocation(this.state.session_token, location.coords);
   }
 
   onPingsReceived = (ping_list) => {
-    ping_list.map((ping) => PushNotificationIOS.scheduleLocalNotification({
+    ping_list.map((ping) => {
+      friend_copy = JSON.parse(JSON.stringify(this.state.friends[ping.from]));
+      friend_copy['location'] = {'lat': ping.location.lat, 'lng': ping.location.lng};
+      PushNotificationIOS.scheduleLocalNotification({
       fireDate: new Date().toISOString(),
-      alertBody:  `${this.state.friends[ping.from].name} pinged you. He is at ${ping.location.lat}, ${ping.location.lng}.`
-    }))
+      alertBody:  `${this.state.friends[ping.from].name} pinged you. They are at ${ping.location.lat}, ${ping.location.lng}.`,
+      userInfo: {
+        friend: friend_copy,
+        location: this.state.location,
+        pro_pic_url: this.state.pro_pic_url,
+      }
+    }
+  )})
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.user_id) {
+    if (this.state.pro_pic_url !== prevState.pro_pic_url) {
+      //console.warn([JSON.stringify(prevState),JSON.stringify(this.props)]);
       this.state.check_pings = setInterval(async () => {
         let resp = await API.getPings(this.state.session_token);
-        console.warn(JSON.stringify(resp));
         this.onPingsReceived(resp);
-      }, 10000);
+      }, 5000);
       this.props.navigator.push({
         screen: 'ping.FriendlistScreen',
         backButtonHidden: true,
         passProps: {
           friends: this.state.friends,
           session_token: this.state.session_token,
+          pro_pic_url: this.state.pro_pic_url,
+          location: this.state.location,
         },
         navigatorStyle: {
           disabledBackGesture: true,
         }
       });
-    } else {
+    } else if (this.state.user_id === null){
       clearInterval(this.state.check_pings);
       this.state.check_pings = null;
     }
@@ -104,5 +129,9 @@ export default class LoginScreen extends Component {
         </View>
       </View>
     );
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.warn(this.state.pro_pic_url !== nextState.pro_pic_url);
+    return this.state.pro_pic_url !== nextState.pro_pic_url;
   }
 }

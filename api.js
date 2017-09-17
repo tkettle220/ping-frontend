@@ -16,8 +16,7 @@ export default class API {
           emergency: emergency
         })
       });
-      let responseJSON = await response.json();
-      console.warn(JSON.stringify(responseJSON));
+      return response.json();
     } catch (error) {
       console.error(error);
     }
